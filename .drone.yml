@@ -14,13 +14,14 @@ steps:
   commands:
     - ls -l
     - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
+    - apk add --no-cache git
     - helm lint helm-chart-sources/*
     - env
     - echo $TOKEN 
     - echo ${TOKEN} 
     - echo $${TOKEN} 
     - echo $TOKEN 
-    - git clone https://${USER}:${TOKEN}@github.com/Frantche/helm-chart.git
+    - git clone https://$USER:$TOKEN@github.com/Frantche/helm-chart.git
     - cd helm-chart
     - git add .
     - git config --global user.email "drone@frantchenco.page"
