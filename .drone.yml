@@ -7,6 +7,7 @@ steps:
   pull: always
   image: alpine:3.13
   commands:
+    - ls -l
     - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
     - helm lint /helm-chart-sources/*
 
