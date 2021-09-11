@@ -44,9 +44,13 @@ steps:
       - helm package helm-chart-sources/* ./
       - git clone https://frantche.github.io/helm-chart/.git
       - mv -n *.tgz helm-chart/
+      - mv -n *.yaml helm-chart/
       - mv /helm-chart-sources/* helm-chart/helm-chart-sources/
       #  - mkdir gitea
       # - mv gitea*.tgz gitea/
+      - ls -l
+      - ls -l helm-chart
+      - ls -l helm-chart/helm-chart-sources/
       - helm repo index helm-chart/ --url https://frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
       - git add .
       - git commit -m 'update helm repo'
