@@ -6,28 +6,10 @@ steps:
 - name: lint
   pull: always
   image: alpine:3.13
-  environment:
-    TOKEN:
-      from_secret: github_token
-    USER:
-      from_secret: github_user
   commands:
     - ls -l
     - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
-    - apk add --no-cache git
     - helm lint helm-chart-sources/*
-    - env
-    - echo $TOKEN 
-    - echo ${TOKEN} 
-    - echo $${TOKEN} 
-    - echo $TOKEN 
-    - git clone https://$USER:$TOKEN@github.com/Frantche/helm-chart.git
-    - cd helm-chart
-    - git add .
-    - git config --global user.email "drone@frantchenco.page"
-    - git config --global user.name "CICD Drone frantchenco.page"
-    - git commit -m 'update helm repo'
-    - git push
 
 # - name: discord
 #   pull: always
@@ -55,15 +37,18 @@ steps:
     pull: always
     image: alpine:3.13
     environment:
-    
+      TOKEN:
+        from_secret: github_token
+      USER:
+        from_secret: github_user
     commands:
-      - echo $TOKEN
+      - env
       - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
       - apk add --no-cache curl
       - apk add --no-cache git
       - helm dependency update helm-chart-sources/*
       - helm package helm-chart-sources/*
-      - git clone https://${TOKEN}@github.com/Frantche/helm-chart.git
+      - git clone https://$USER:$TOKEN@github.com/Frantche/helm-chart.git
       - mv -n *.tgz helm-chart/
       - mv -n *.yaml helm-chart/
       - helm repo index helm-chart/ --url https://frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
