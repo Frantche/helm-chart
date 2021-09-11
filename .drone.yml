@@ -46,7 +46,7 @@ steps:
       - apk add --no-cache git
       - helm dependency update helm-chart-sources/*
       - helm package helm-chart-sources/*
-      - git clone https://github.com/Frantche/helm-chart.git
+      - git clone https://$TOKEN@github.com/Frantche/helm-chart.git
       - mv -n *.tgz helm-chart/
       - mv -n *.yaml helm-chart/
       # - mv /helm-chart-sources/* helm-chart/helm-chart-sources/
@@ -56,7 +56,7 @@ steps:
       - ls -l helm-chart
       - ls -l helm-chart/helm-chart-sources/
       - echo ${TOKEN}
-      - helm repo index helm-chart/ --url https://$TOKEN@frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
+      - helm repo index helm-chart/ --url https://frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
       - cd helm-chart
       - cat index.yaml
       - git add .
