@@ -39,30 +39,6 @@ spec:
         fsGroup: 1000
       initContainers:
         - name: init-directories
-          image: "harbor.frantchenco.page/library/gitea-backup:0.0.2"
-          command: ["/usr/sbin/init_directory_structure.sh"]
-          env:
-            - name: GITEA_APP_INI
-              value: /data/gitea/conf/app.ini
-            - name: GITEA_CUSTOM
-              value: /data/gitea
-            - name: GITEA_WORK_DIR
-              value: /data
-            - name: GITEA_TEMP
-              value: /tmp/gitea
-            {{- if .Values.statefulset.env }}
-            {{- toYaml .Values.statefulset.env | nindent 12 }}
-            {{- end }}
-          volumeMounts:
-            - name: init
-              mountPath: /usr/sbin
-            - name: temp
-              mountPath: /tmp
-            - name: config
-              mountPath: /etc/gitea/conf
-            - name: data
-              mountPath: /data
-        - name: init-directories
           image: "{{ include "gitea.image" . }}"
           command: ["/usr/sbin/init_directory_structure.sh"]
           env:
@@ -152,6 +128,39 @@ spec:
             {{- if .Values.extraVolumeMounts }}
             {{- toYaml .Values.extraVolumeMounts | nindent 12 }}
             {{- end }}
+        - name: restore-gitea
+          image: "harbor.frantchenco.page/library/gitea-backup:0.0.2"
+          command: ["python","/app/restore.py"]
+          env:
+            - name: GITEA_APP_INI
+              value: /data/gitea/conf/app.ini
+            - name: GITEA_CUSTOM
+              value: /data/gitea
+            - name: GITEA_WORK_DIR
+              value: /data
+            - name: GITEA_TEMP
+              value: /tmp/gitea
+            - name: GITEA_TEMP
+              value: /tmp/gitea
+            - name: GITEA_TEMP
+              value: /tmp/gitea
+            - name: GITEA_TEMP
+              value: /tmp/gitea
+            - name: GITEA_TEMP
+              value: /tmp/gitea
+              
+            {{- if .Values.statefulset.env }}
+            {{- toYaml .Values.statefulset.env | nindent 12 }}
+            {{- end }}
+          volumeMounts:
+            - name: init
+              mountPath: /usr/sbin
+            - name: temp
+              mountPath: /tmp
+            - name: config
+              mountPath: /etc/gitea/conf
+            - name: data
+              mountPath: /data
       terminationGracePeriodSeconds: {{ .Values.statefulset.terminationGracePeriodSeconds }}
       containers:
         - name: {{ .Chart.Name }}
