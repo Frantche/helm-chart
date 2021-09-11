@@ -42,7 +42,7 @@ steps:
       - apk add --no-cache git
       - helm dependency update helm-chart-sources/*
       - helm package helm-chart-sources/*
-      - git clone https://frantche.github.io/helm-chart/.git
+      - git clone https://github.com/Frantche/helm-chart.git
       - mv -n *.tgz helm-chart/
       - mv -n *.yaml helm-chart/
       - mv /helm-chart-sources/* helm-chart/helm-chart-sources/
