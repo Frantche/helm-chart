@@ -55,6 +55,6 @@ steps:
       - helm repo index helm-chart/ --url https://${github_token}@frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
       - cd helm-chart
       - cat index.yaml
-        git add .
+      - git add .
       - git commit -m 'update helm repo'
       - git push
