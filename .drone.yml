@@ -28,9 +28,9 @@ steps:
 kind: pipeline
 name: release-version
 
-trigger:
-  event:
-    - tag
+# trigger:
+#   event:
+#     - tag
 
 steps:
   - name: generate-chart
