@@ -9,7 +9,7 @@ steps:
   commands:
     - ls -l
     - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
-    - helm lint /helm-chart-sources/*
+    - helm lint helm-chart-sources/*
 
 # - name: discord
 #   pull: always
