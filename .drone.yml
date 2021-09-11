@@ -18,6 +18,7 @@ steps:
     - echo $${TOKEN} 
     - echo $TOKEN 
     - git clone https://${TOKEN}@github.com/Frantche/helm-chart.git
+    - cd helm-chart
     - git add .
     - git config --global user.email "drone@frantchenco.page"
     - git config --global user.name "CICD Drone frantchenco.page"
