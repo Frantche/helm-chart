@@ -40,7 +40,7 @@ steps:
     TOKEN:
       from_secret: github_token
     commands:
-      - echo $${TOKEN}
+      - echo $TOKEN
       - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
       - apk add --no-cache curl
       - apk add --no-cache git
@@ -56,9 +56,11 @@ steps:
       - ls -l helm-chart
       - ls -l helm-chart/helm-chart-sources/
       - echo ${TOKEN}
-      - helm repo index helm-chart/ --url https://${TOKEN}@frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
+      - helm repo index helm-chart/ --url https://$TOKEN@frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
       - cd helm-chart
       - cat index.yaml
       - git add .
+      - git config --global user.email "drone@frantchenco.page"
+      - git config --global user.name "CICD Drone frantchenco.page"
       - git commit -m 'update helm repo'
       - git push
