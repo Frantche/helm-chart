@@ -2,10 +2,6 @@
 kind: pipeline
 name: lint
 
-platform:
-  os: linux
-  arch: arm64
-
 steps:
 - name: lint
   pull: always
@@ -30,10 +26,6 @@ steps:
 ---
 kind: pipeline
 name: release-version
-
-platform:
-  os: linux
-  arch: arm64
 
 trigger:
   event:
