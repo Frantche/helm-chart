@@ -36,6 +36,9 @@ steps:
   - name: generate-chart
     pull: always
     image: alpine:3.13
+    environment:
+    TOKEN:
+      from_secret: github_token
     commands:
       - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
       - apk add --no-cache curl
@@ -51,8 +54,8 @@ steps:
       - ls -l
       - ls -l helm-chart
       - ls -l helm-chart/helm-chart-sources/
-      - echo ${github_token}
-      - helm repo index helm-chart/ --url https://${github_token}@frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
+      - echo ${TOKEN}
+      - helm repo index helm-chart/ --url https://${TOKEN}@frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
       - cd helm-chart
       - cat index.yaml
       - git add .
