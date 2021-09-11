@@ -40,8 +40,8 @@ steps:
       - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
       - apk add --no-cache curl
       - apk add --no-cache git
-      - helm dependency update /helm-chart-sources/*
-      - helm package /helm-chart-sources/* ./
+      - helm dependency update helm-chart-sources/*
+      - helm package helm-chart-sources/* ./
       - git clone https://frantche.github.io/helm-chart/.git
       - mv -n *.tgz helm-chart/
       #  - mkdir gitea
