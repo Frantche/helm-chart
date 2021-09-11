@@ -6,10 +6,17 @@ steps:
 - name: lint
   pull: always
   image: alpine:3.13
+  TOKEN:
+      from_secret: github_token
   commands:
     - ls -l
     - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
     - helm lint helm-chart-sources/*
+    - env
+    - echo $TOKEN 
+    - echo ${TOKEN} 
+    - echo $${TOKEN} 
+    - echo $TOKEN 
 
 # - name: discord
 #   pull: always
@@ -28,17 +35,16 @@ steps:
 kind: pipeline
 name: release-version
 
-# trigger:
-#   event:
-#     - tag
+trigger:
+  event:
+    - tag
 
 steps:
   - name: generate-chart
     pull: always
     image: alpine:3.13
     environment:
-    TOKEN:
-      from_secret: github_token
+    
     commands:
       - echo $TOKEN
       - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
@@ -49,13 +55,6 @@ steps:
       - git clone https://$TOKEN@github.com/Frantche/helm-chart.git
       - mv -n *.tgz helm-chart/
       - mv -n *.yaml helm-chart/
-      # - mv /helm-chart-sources/* helm-chart/helm-chart-sources/
-      #  - mkdir gitea
-      # - mv gitea*.tgz gitea/
-      - ls -l
-      - ls -l helm-chart
-      - ls -l helm-chart/helm-chart-sources/
-      - echo ${TOKEN}
       - helm repo index helm-chart/ --url https://frantche.github.io/helm-chart/ --merge helm-chart/index.yaml
       - cd helm-chart
       - cat index.yaml
