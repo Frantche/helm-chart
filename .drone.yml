@@ -6,8 +6,11 @@ steps:
 - name: lint
   pull: always
   image: alpine:3.13
-  TOKEN:
+  environment:
+    TOKEN:
       from_secret: github_token
+    USER:
+      from_secret: github_user
   commands:
     - ls -l
     - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
@@ -17,7 +20,7 @@ steps:
     - echo ${TOKEN} 
     - echo $${TOKEN} 
     - echo $TOKEN 
-    - git clone https://${TOKEN}@github.com/Frantche/helm-chart.git
+    - git clone https://${USER}:${TOKEN}@github.com/Frantche/helm-chart.git
     - cd helm-chart
     - git add .
     - git config --global user.email "drone@frantchenco.page"
