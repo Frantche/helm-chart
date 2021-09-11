@@ -45,7 +45,7 @@ steps:
       - git clone https://github.com/Frantche/helm-chart.git
       - mv -n *.tgz helm-chart/
       - mv -n *.yaml helm-chart/
-      - mv helm-chart-sources/* helm-chart/helm-chart-sources/
+      # - mv /helm-chart-sources/* helm-chart/helm-chart-sources/
       #  - mkdir gitea
       # - mv gitea*.tgz gitea/
       - ls -l
