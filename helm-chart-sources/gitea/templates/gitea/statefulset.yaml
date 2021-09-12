@@ -129,8 +129,8 @@ spec:
             {{- toYaml .Values.extraVolumeMounts | nindent 12 }}
             {{- end }}
         - name: restore-gitea
-          image: "harbor.frantchenco.page/library/gitea-backup:0.0.5"
-          command: ["python","/app/restore.py"]
+          image: {{ printf "%s:%s%s" .Values.backup.image .Values.backup.version -}}
+          command: {{ .Values.backup.command | quote }}
           env:
             - name: GITEA_APP_INI
               value: /data/gitea/conf/app.ini
