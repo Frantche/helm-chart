@@ -129,7 +129,7 @@ spec:
             {{- toYaml .Values.extraVolumeMounts | nindent 12 }}
             {{- end }}
         - name: restore-gitea
-          image: {{ printf "%s:%s%s" .Values.backup.image .Values.backup.version -}}
+          image: {{ printf "%s:%s" .Values.backup.image .Values.backup.version }}
           command: {{ .Values.backup.command | quote }}
           env:
             - name: GITEA_APP_INI
