@@ -295,3 +295,12 @@ mariadb:
       port: 3306
     persistence:
       size: 10Gi
+
+backup:
+  BACKUP_TARGET_FOLDER: "target"
+  BACKUP_METHODE: "ftp"
+  BACKUP_FTP_USERNAME: "username"
+  BACKUP_FTP_SERVER_URL: "server host"
+  BACKUP_FTP_PASSWORD: "password"
+  BACKUP_FILENAME: "filename"
+  BACKUP_ENABLE: "True"
