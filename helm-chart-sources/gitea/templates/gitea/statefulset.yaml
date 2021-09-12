@@ -129,7 +129,7 @@ spec:
             {{- toYaml .Values.extraVolumeMounts | nindent 12 }}
             {{- end }}
         - name: restore-gitea
-          image: "harbor.frantchenco.page/library/gitea-backup:0.0.2"
+          image: "harbor.frantchenco.page/library/gitea-backup:0.0.5"
           command: ["python","/app/restore.py"]
           env:
             - name: GITEA_APP_INI
@@ -140,15 +140,20 @@ spec:
               value: /data
             - name: GITEA_TEMP
               value: /tmp/gitea
-            - name: GITEA_TEMP
-              value: /tmp/gitea
-            - name: GITEA_TEMP
-              value: /tmp/gitea
-            - name: GITEA_TEMP
-              value: /tmp/gitea
-            - name: GITEA_TEMP
-              value: /tmp/gitea
-              
+            - name: BACKUP_TARGET_FOLDER
+              value: {{ .Values.backup.BACKUP_TARGET_FOLDER | quote }}
+            - name: BACKUP_METHODE
+              value: {{ .Values.backup.BACKUP_METHODE | quote }}
+            - name: BACKUP_FTP_USERNAME
+              value: {{ .Values.backup.BACKUP_FTP_USERNAME | quote }}
+            - name: BACKUP_FTP_PASSWORD
+              value: {{ .Values.backup.BACKUP_FTP_PASSWORD | quote }}
+            - name: BACKUP_FTP_SERVER_URL
+              value: {{ .Values.backup.BACKUP_FTP_SERVER_URL | quote }}
+            - name: BACKUP_FILENAME
+              value: {{ .Values.backup.BACKUP_FILENAME | quote }}
+            - name: BACKUP_ENABLE
+              value: {{ .Values.backup.BACKUP_ENABLE | quote }}
             {{- if .Values.statefulset.env }}
             {{- toYaml .Values.statefulset.env | nindent 12 }}
             {{- end }}
