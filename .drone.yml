@@ -55,7 +55,7 @@ steps:
       - cd helm-chart
       - cat index.yaml
       - git add .
-      - git config --global user.email "drone@frantchenco.page"
+      - git config --global user.email "21145306+Frantche@users.noreply.github.com"
       - git config --global user.name "CICD Drone frantchenco.page"
       - git commit -m 'update helm repo'
       - git push
