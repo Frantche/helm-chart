@@ -38,10 +38,13 @@ stringData:
     {{- /* picture default settings */ -}}
     {{- if not .Values.gitea.config.picture.AVATAR_UPLOAD_PATH -}}
     {{- $_ := set .Values.gitea.config.picture "AVATAR_UPLOAD_PATH" "/data/gitea/avatars" -}}
+    {{- end -}}
     {{- if not .Values.gitea.config.picture.REPOSITORY_AVATAR_UPLOAD_PATH -}}
     {{- $_ := set .Values.gitea.config.picture "REPOSITORY_AVATAR_UPLOAD_PATH" "/data/gitea/repo-avatars" -}}
+    {{- end -}}
     {{- if not .Values.gitea.config.picture.DISABLE_GRAVATAR -}}
     {{- $_ := set .Values.gitea.config.picture "DISABLE_GRAVATAR" "false" -}}
+    {{- end -}}
     {{- if not .Values.gitea.config.picture.ENABLE_FEDERATED_AVATAR -}}
     {{- $_ := set .Values.gitea.config.picture "ENABLE_FEDERATED_AVATAR" "true" -}}
     {{- end -}}
