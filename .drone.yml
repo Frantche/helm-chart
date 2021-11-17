@@ -56,6 +56,6 @@ steps:
       - cat index.yaml
       - git add .
       - git config --global user.email "21145306+Frantche@users.noreply.github.com"
-      - git config --global user.name "CICD Drone frantchenco.page"
+      - git config --global user.name "CICD Drone"
       - git commit -m 'update helm repo'
       - git push
