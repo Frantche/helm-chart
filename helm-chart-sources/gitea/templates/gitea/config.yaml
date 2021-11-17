@@ -31,6 +31,21 @@ stringData:
     {{- $_ := set .Values.gitea.config "repository" dict -}}
     {{- end -}}
 
+    {{- if not .Values.gitea.config.picture -}}
+    {{- $_ := set .Values.gitea.config "picture" dict -}}
+    {{- end -}}
+
+    {{- /* picture default settings */ -}}
+    {{- if not .Values.gitea.config.picture.AVATAR_UPLOAD_PATH -}}
+    {{- $_ := set .Values.gitea.config.picture "AVATAR_UPLOAD_PATH" "/data/gitea/avatars" -}}
+    {{- if not .Values.gitea.config.picture.REPOSITORY_AVATAR_UPLOAD_PATH -}}
+    {{- $_ := set .Values.gitea.config.picture "REPOSITORY_AVATAR_UPLOAD_PATH" "/data/gitea/repo-avatars" -}}
+    {{- if not .Values.gitea.config.picture.DISABLE_GRAVATAR -}}
+    {{- $_ := set .Values.gitea.config.picture "DISABLE_GRAVATAR" "false" -}}
+    {{- if not .Values.gitea.config.picture.ENABLE_FEDERATED_AVATAR -}}
+    {{- $_ := set .Values.gitea.config.picture "ENABLE_FEDERATED_AVATAR" "true" -}}
+    {{- end -}}
+
     {{- /* repository default settings */ -}}
     {{- if not .Values.gitea.config.repository.ROOT -}}
     {{- $_ := set .Values.gitea.config.repository "ROOT" "/data/git/gitea-repositories" -}}
@@ -135,7 +150,7 @@ stringData:
     {{- /* autogenerate app.ini */ -}}
     {{- range $key, $value := .Values.gitea.config  }}
     {{- if kindIs "map" $value }}
-    {{- if gt (len $value) 0 }}
+    {{- if gt (len $value) 0 }} 
 
     [{{ $key }}]
     {{- range $n_key, $n_value := $value }}
