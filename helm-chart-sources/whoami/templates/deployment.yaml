@@ -12,7 +12,6 @@ spec:
       {{- if .Values.deployment.labels }}
       {{- toYaml .Values.deployment.labels | nindent 6 }}
       {{- end }}
-  serviceName: {{ include "whoami.fullname" . }}
   template:
     metadata:
       annotations:
