@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "whoami.fullname" . }}
+  labels:
+    {{- include "whoami.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "whoami.selectorLabels" . | nindent 6 }}
+      {{- if .Values.deployment.labels }}
+      {{- toYaml .Values.deployment.labels | nindent 6 }}
+      {{- end }}
+  serviceName: {{ include "whoami.fullname" . }}
+  template:
+    metadata:
+      annotations:
+        {{- with .Values.whoami.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "whoami.labels" . | nindent 8 }}
+        {{- if .Values.deployment.labels }}
+        {{- toYaml .Values.deployment.labels | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- if .Values.schedulerName }}
+      schedulerName: "{{ .Values.schedulerName }}"
+      {{- end }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ include "whoami.image" . }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+          {{- if .Values.whoami.livenessProbe.enabled }}
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: {{ .Values.whoami.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.whoami.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.whoami.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.whoami.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.whoami.livenessProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.whoami.readinessProbe.enabled }}
+          readinessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: {{ .Values.whoami.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.whoami.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.whoami.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.whoami.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.whoami.readinessProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.whoami.startupProbe.enabled }}
+          startupProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: {{ .Values.whoami.startupProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.whoami.startupProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.whoami.startupProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.whoami.startupProbe.successThreshold }}
+            failureThreshold: {{ .Values.whoami.startupProbe.failureThreshold }}}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
