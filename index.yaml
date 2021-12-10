@@ -3,7 +3,7 @@ entries:
   gitea:
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2021-11-17T20:36:12.662817896Z"
+    created: "2021-12-10T21:09:59.198462009Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -53,7 +53,7 @@ entries:
     version: 0.0.5
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2021-11-17T20:36:12.615673757Z"
+    created: "2021-12-10T21:09:59.171148264Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -103,7 +103,7 @@ entries:
     version: 0.0.4
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2021-11-17T20:36:12.591054426Z"
+    created: "2021-12-10T21:09:59.146036676Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -153,7 +153,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2021-11-17T20:36:12.541225025Z"
+    created: "2021-12-10T21:09:59.12166805Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -203,7 +203,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2021-11-17T20:36:12.490242589Z"
+    created: "2021-12-10T21:09:59.10048791Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -253,7 +253,7 @@ entries:
     version: 0.0.1
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2021-11-17T20:36:12.462321209Z"
+    created: "2021-12-10T21:09:59.076555398Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -301,4 +301,25 @@ entries:
     urls:
     - https://frantche.github.io/helm-chart/gitea-0.0.0.tgz
     version: 0.0.0
-generated: "2021-11-17T20:36:12.426608957Z"
+  whoami:
+  - apiVersion: v2
+    appVersion: 1.14.6
+    created: "2021-12-10T21:09:59.199502134Z"
+    description: Whoami Helm chart for Kubernetes
+    digest: 3fc57ec45c3f091a0d342c389b04d8289133f2eee331931f96a08e2447ca1fcf
+    icon: https://docs.gitea.io/images/gitea.png
+    keywords:
+    - whoami
+    maintainers:
+    - email: fklieber@gmail.com
+      name: francois klieber
+    name: whoami
+    sources:
+    - https://gitea.com/gitea/helm-chart
+    - https://github.com/go-gitea/gitea
+    - https://hub.docker.com/r/gitea/gitea/
+    type: application
+    urls:
+    - https://frantche.github.io/helm-chart/whoami-0.0.1.tgz
+    version: 0.0.1
+generated: "2021-12-10T21:09:59.056533868Z"
