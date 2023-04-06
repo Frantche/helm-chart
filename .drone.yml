@@ -5,10 +5,11 @@ name: lint
 steps:
 - name: lint
   pull: always
-  image: alpine:3.13
+  image: registry.access.redhat.com/ubi8/ubi
   commands:
     - ls -l
-    - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
+    - curl -L https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -o /usr/local/bin/helm
+    - chmod +x /usr/local/bin/helm
     - helm lint helm-chart-sources/*
 
 # - name: discord
@@ -35,7 +36,7 @@ trigger:
 steps:
   - name: generate-chart
     pull: always
-    image: alpine:3.13
+    image: registry.access.redhat.com/ubi8/ubi
     environment:
       TOKEN:
         from_secret: github_token
@@ -43,9 +44,10 @@ steps:
         from_secret: github_user
     commands:
       - env
-      - apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing helm
-      - apk add --no-cache curl
-      - apk add --no-cache git
+      - ls -l
+      - curl -L https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -o /usr/local/bin/helm
+      - chmod +x /usr/local/bin/helm
+      - dnf install git
       - helm dependency update helm-chart-sources/gitea
       - helm dependency update helm-chart-sources/whoami
       - helm package helm-chart-sources/*
