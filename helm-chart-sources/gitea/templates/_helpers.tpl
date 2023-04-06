@@ -46,6 +46,8 @@ Create image name and tag used by the deployment.
 {{- end -}}
 {{- end -}}
 
+
+
 {{/*
 Docker Image Registry Secret Names evaluating values as templates
 */}}
@@ -60,6 +62,33 @@ imagePullSecrets:
 {{- end }}
 {{- end -}}
 
+{{/*
+Create backup image name and tag used by the deployment.
+*/}}
+{{- define "gitea.backup.image" -}}
+{{- $registry := .Values.global.imageRegistry | default .Values.backup.image.registry -}}
+{{- $name := .Values.backup.image.repository -}}
+{{- $tag := .Values.backup.image.tag | default .Chart.AppVersion -}}
+{{- if $registry -}}
+  {{- printf "%s/%s:%s" $registry $name $tag -}}
+{{- else -}}
+  {{- printf "%s:%s" $name $tag -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Docker backup Image Registry Secret Names evaluating values as templates
+*/}}
+{{- define "gitea.backup.images.pullSecrets" -}}
+{{- $pullSecrets := .Values.backup.imagePullSecrets -}}
+{{- range .Values.global.imagePullSecrets -}}
+    {{- $pullSecrets = append $pullSecrets (dict "name" .) -}}
+{{- end -}}
+{{- if (not (empty $pullSecrets)) }}
+imagePullSecrets:
+{{ toYaml $pullSecrets }}
+{{- end }}
+{{- end -}}
 
 {{/*
 Storage Class
