@@ -3,7 +3,7 @@ entries:
   gitea:
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.434311301Z"
+    created: "2024-01-29T09:03:36.338767455Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -53,7 +53,7 @@ entries:
     version: 7.0.23
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.402233167Z"
+    created: "2024-01-29T09:03:36.246243124Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -103,7 +103,7 @@ entries:
     version: 7.0.22
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.366868448Z"
+    created: "2024-01-29T09:03:36.172163135Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -153,7 +153,7 @@ entries:
     version: 7.0.21
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.326642296Z"
+    created: "2024-01-29T09:03:36.117080085Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -203,7 +203,7 @@ entries:
     version: 7.0.20
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.282449711Z"
+    created: "2024-01-29T09:03:36.020342077Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -253,7 +253,7 @@ entries:
     version: 7.0.19
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.244811049Z"
+    created: "2024-01-29T09:03:35.858019253Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -303,7 +303,7 @@ entries:
     version: 7.0.18
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.198161218Z"
+    created: "2024-01-29T09:03:35.738889991Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -353,7 +353,7 @@ entries:
     version: 7.0.17
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.148807253Z"
+    created: "2024-01-29T09:03:35.656714823Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -403,7 +403,7 @@ entries:
     version: 7.0.16
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.10464206Z"
+    created: "2024-01-29T09:03:35.527656822Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -453,7 +453,7 @@ entries:
     version: 7.0.15
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.056370929Z"
+    created: "2024-01-29T09:03:35.436470392Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -503,7 +503,7 @@ entries:
     version: 7.0.13
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.016646294Z"
+    created: "2024-01-29T09:03:35.312985346Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -553,7 +553,7 @@ entries:
     version: 7.0.12
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:41.968740394Z"
+    created: "2024-01-29T09:03:35.21426765Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -603,7 +603,7 @@ entries:
     version: 7.0.11
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:41.918076998Z"
+    created: "2024-01-29T09:03:35.143132219Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -653,7 +653,7 @@ entries:
     version: 7.0.10
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.696588285Z"
+    created: "2024-01-29T09:03:36.747299486Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -703,7 +703,7 @@ entries:
     version: 7.0.9
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.648984187Z"
+    created: "2024-01-29T09:03:36.688588908Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -753,7 +753,7 @@ entries:
     version: 7.0.8
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.606969561Z"
+    created: "2024-01-29T09:03:36.623959904Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -803,7 +803,7 @@ entries:
     version: 7.0.7
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.565108115Z"
+    created: "2024-01-29T09:03:36.532429083Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -853,7 +853,7 @@ entries:
     version: 7.0.6
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.513814991Z"
+    created: "2024-01-29T09:03:36.448347914Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -903,7 +903,7 @@ entries:
     version: 7.0.5
   - apiVersion: v2
     appVersion: 1.18.5
-    created: "2023-04-17T16:04:42.468793836Z"
+    created: "2024-01-29T09:03:36.386611778Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -953,7 +953,7 @@ entries:
     version: 7.0.4
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:41.868084812Z"
+    created: "2024-01-29T09:03:34.926056389Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -1003,7 +1003,7 @@ entries:
     version: 0.0.5
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:41.833390594Z"
+    created: "2024-01-29T09:03:34.819059572Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -1053,7 +1053,7 @@ entries:
     version: 0.0.4
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:41.804640717Z"
+    created: "2024-01-29T09:03:34.745449134Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -1103,7 +1103,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:41.767588221Z"
+    created: "2024-01-29T09:03:34.62051527Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -1153,7 +1153,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:41.745646227Z"
+    created: "2024-01-29T09:03:34.447152455Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -1203,7 +1203,7 @@ entries:
     version: 0.0.1
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:41.710691497Z"
+    created: "2024-01-29T09:03:34.350387207Z"
     dependencies:
     - condition: gitea.cache.builtIn.enabled
       name: memcached
@@ -1254,7 +1254,7 @@ entries:
   kemopier:
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:42.698431962Z"
+    created: "2024-01-29T09:03:36.748786589Z"
     description: kemopier Helm chart for Kubernetes
     digest: e00684181bcc86321575baf1c2d2b39030ac46d97e5d7b49dbf1d3f9a769d273
     icon: https://docs.gitea.io/images/gitea.png
@@ -1272,10 +1272,34 @@ entries:
     urls:
     - https://frantche.github.io/helm-chart/kemopier-0.0.2.tgz
     version: 0.0.2
+  keycloak-realm-operator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-01-29T09:03:36.754693018Z"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Keycloak realm operator Helm Chart
+    digest: 42436163a16f1969f2ae3aef64208abf13b1b054f700232bcb29d7833890bd55
+    icon: https://docs.gitea.io/images/gitea.png
+    keywords:
+    - keycloak realm operator
+    maintainers:
+    - name: francois klieber
+    name: keycloak-realm-operator
+    sources:
+    - https://gitea.frantchenco.page/
+    type: application
+    urls:
+    - https://frantche.github.io/helm-chart/keycloak-realm-operator-0.0.1.tgz
+    version: 0.0.1
   whoami:
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:42.702016967Z"
+    created: "2024-01-29T09:03:36.758426216Z"
     description: Whoami Helm chart for Kubernetes
     digest: 3a57c739bcd282c5f263e7f018cef810ddf26d6e05f97dfa85fcba910380c470
     icon: https://docs.gitea.io/images/gitea.png
@@ -1295,7 +1319,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.14.6
-    created: "2023-04-17T16:04:42.700118784Z"
+    created: "2024-01-29T09:03:36.756498414Z"
     description: Whoami Helm chart for Kubernetes
     digest: 3fc57ec45c3f091a0d342c389b04d8289133f2eee331931f96a08e2447ca1fcf
     icon: https://docs.gitea.io/images/gitea.png
@@ -1313,4 +1337,4 @@ entries:
     urls:
     - https://frantche.github.io/helm-chart/whoami-0.0.1.tgz
     version: 0.0.1
-generated: "2023-04-17T16:04:41.680677401Z"
+generated: "2024-01-29T09:03:34.244143862Z"
